@@ -26,7 +26,7 @@ public class ContactMessageApiTest {
                 .then().statusCode(201)
                 .extract().as(ContactMessageResponse.class);    // Deserialization (JSON -> POJO)
 
-        assertTrue(response.getSuccess());
+        assertEquals(response.getStatus(), "CREATED");
         assertTrue(response.getMessage().contains("CREATED"), response.getMessage());
         ContactMessageResponse.ContactMessage created = response.getObject();
         assertNotNull(created.getId());

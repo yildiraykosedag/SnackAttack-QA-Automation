@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "ce8f1ba7-4e72-4ae3-93d0-b56efcbfa459",
+    "_postman_id": "02b373c5-be14-4626-bb1f-910ab02bab08",
     "name": "Snack Attack API Tests – Yıldıray Kösedağ",
     "description": "Snack Attack REST API manuel test koleksiyonu (Madde 15).\nSwagger: https://snackattack-api.deployedprojects.xyz/swagger-ui/index.html\n\nKoşum: 'Snack Attack - Test' environment'ını seçin, userEmail / userPassword değerlerini doldurun ve Collection Runner ile çalıştırın.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -17,6 +17,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "{",
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
                   "pm.test(\"Yanıt süresi < 3000 ms\", () => pm.expect(pm.response.responseTime).to.be.below(3000));",
                   "const body = pm.response.json();",
@@ -24,7 +25,8 @@
                   "pm.test(\"Sayfa boyutu 10\", () => pm.expect(body.content.length).to.eql(10));",
                   "pm.test(\"Tüm fiyatlar pozitif\", () => body.content.forEach(p => pm.expect(p.price).to.be.above(0)));",
                   "pm.test(\"Şema: id, name, price, categories\", () => body.content.forEach(p => pm.expect(p).to.include.all.keys(\"id\", \"name\", \"price\", \"categories\")));",
-                  "pm.collectionVariables.set(\"productId\", body.content[0].id);"
+                  "pm.collectionVariables.set(\"productId\", body.content[0].id);",
+                  "}"
                 ]
               }
             }
@@ -75,10 +77,12 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "{",
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
                   "const names = pm.response.json().content.map(p => p.name);",
                   "pm.test(\"Sadece burger ürünleri\", () => names.forEach(n => pm.expect(n.toLowerCase()).to.include(\"burger\")));",
-                  "pm.test(\"Klasik Burger listede\", () => pm.expect(names).to.include(\"Klasik Burger 120g\"));"
+                  "pm.test(\"Klasik Burger listede\", () => pm.expect(names).to.include(\"Klasik Burger 120g\"));",
+                  "}"
                 ]
               }
             }
@@ -129,13 +133,15 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "{",
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
                   "const res = pm.response.json();",
                   "const d = res.data;",
                   "pm.test(\"success = true\", () => pm.expect(res.success).to.be.true);",
                   "pm.test(\"Ad ve fiyat\", () => { pm.expect(d.name).to.eql(\"Klasik Burger 120g\"); pm.expect(d.price).to.eql(75); });",
                   "pm.test(\"Kategori HAMBURGER\", () => pm.expect(d.categories[0].name).to.eql(\"HAMBURGER\"));",
-                  "pm.test(\"İlave kategorisi Soslar\", () => pm.expect(d.additionsCategory[0].name).to.eql(\"Soslar\"));"
+                  "pm.test(\"İlave kategorisi Soslar\", () => pm.expect(d.additionsCategory[0].name).to.eql(\"Soslar\"));",
+                  "}"
                 ]
               }
             }
@@ -173,7 +179,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status 404\", () => pm.response.to.have.status(404));"
+                  "{",
+                  "pm.test(\"Status 404\", () => pm.response.to.have.status(404));",
+                  "}"
                 ]
               }
             }
@@ -211,8 +219,10 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "{",
                   "pm.test(\"search opsiyonel olmalı – 200 beklenir (bug: 400 + NullPointerException)\", () => pm.response.to.have.status(200));",
-                  "pm.test(\"Yanıtta Java hata mesajı olmamalı\", () => pm.expect(pm.response.text()).to.not.include(\"toLowerCase\"));"
+                  "pm.test(\"Yanıtta Java hata mesajı olmamalı\", () => pm.expect(pm.response.text()).to.not.include(\"toLowerCase\"));",
+                  "}"
                 ]
               }
             }
@@ -259,7 +269,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status 200 (bug: 500 Internal Server Error)\", () => pm.response.to.have.status(200));"
+                  "{",
+                  "pm.test(\"Status 200 (bug: 500 Internal Server Error)\", () => pm.response.to.have.status(200));",
+                  "}"
                 ]
               }
             }
@@ -301,11 +313,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "{",
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
                   "const data = pm.response.json().data;",
                   "pm.test(\"6 kategori\", () => pm.expect(data.length).to.eql(6));",
                   "pm.test(\"Hepsi aktif\", () => data.forEach(c => pm.expect(c.active).to.be.true));",
-                  "pm.test(\"Beklenen kategoriler\", () => pm.expect(data.map(c => c.name)).to.include.members([\"DONER\", \"HAMBURGER\", \"PIZZA\", \"ICECEKLER\", \"TATLILAR\", \"SALATALAR\"]));"
+                  "pm.test(\"Beklenen kategoriler\", () => pm.expect(data.map(c => c.name)).to.include.members([\"DONER\", \"HAMBURGER\", \"PIZZA\", \"ICECEKLER\", \"TATLILAR\", \"SALATALAR\"]));",
+                  "}"
                 ]
               }
             }
@@ -341,7 +355,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status 401 (bug: 200 – yetkisiz erişim açık)\", () => pm.response.to.have.status(401));"
+                  "{",
+                  "pm.test(\"Status 401 (bug: 200 – yetkisiz erişim açık)\", () => pm.response.to.have.status(401));",
+                  "}"
                 ]
               }
             }
@@ -378,7 +394,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status 401 (bug: 200 – yetkisiz erişim açık)\", () => pm.response.to.have.status(401));"
+                  "{",
+                  "pm.test(\"Status 401 (bug: 200 – yetkisiz erişim açık)\", () => pm.response.to.have.status(401));",
+                  "}"
                 ]
               }
             }
@@ -443,12 +461,14 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "{",
                   "pm.test(\"Status 201 Created\", () => pm.response.to.have.status(201));",
                   "const res = pm.response.json();",
-                  "pm.test(\"success = true\", () => pm.expect(res.success).to.be.true);",
+                  "pm.test(\"status = CREATED\", () => pm.expect(res.status).to.eql(\"CREATED\"));",
                   "pm.test(\"Mesaj CREATED içerir\", () => pm.expect(res.message).to.include(\"CREATED\"));",
                   "pm.test(\"Dönen email gönderilenle aynı\", () => pm.expect(res.object.email).to.eql(pm.collectionVariables.get(\"shortEmail\")));",
-                  "pm.collectionVariables.set(\"contactMessageId\", res.object.id);"
+                  "pm.collectionVariables.set(\"contactMessageId\", res.object.id);",
+                  "}"
                 ]
               }
             }
@@ -494,7 +514,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status 400\", () => pm.response.to.have.status(400));"
+                  "{",
+                  "pm.test(\"Status 400\", () => pm.response.to.have.status(400));",
+                  "}"
                 ]
               }
             }
@@ -540,7 +562,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Geçerli email kabul edilmeli – 201 (bug: 400 Validation failed)\", () => pm.response.to.have.status(201));"
+                  "{",
+                  "pm.test(\"Geçerli email kabul edilmeli – 201 (bug: 400 Validation failed)\", () => pm.response.to.have.status(201));",
+                  "}"
                 ]
               }
             }
@@ -586,7 +610,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status 401\", () => pm.response.to.have.status(401));"
+                  "{",
+                  "pm.test(\"Status 401\", () => pm.response.to.have.status(401));",
+                  "}"
                 ]
               }
             }
@@ -628,11 +654,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "{",
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
                   "const res = pm.response.json();",
                   "pm.test(\"Token döner\", () => pm.expect(res.token).to.be.a(\"string\").and.not.empty);",
                   "pm.test(\"Yanıtta şifre olmamalı\", () => pm.expect(res.password == null || res.password === \"\").to.be.true);",
-                  "pm.collectionVariables.set(\"token\", res.token);"
+                  "pm.collectionVariables.set(\"token\", res.token);",
+                  "}"
                 ]
               }
             }
@@ -678,9 +706,11 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "{",
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
                   "pm.test(\"Email eşleşir\", () => pm.expect(pm.response.json().object.email).to.eql(pm.environment.get(\"userEmail\")));",
-                  "pm.test(\"Şifre hash'i dönmemeli (bilinen bug SCRUM-248)\", () => pm.expect(pm.response.json().object.password).to.be.oneOf([null, undefined]));"
+                  "pm.test(\"Şifre hash'i dönmemeli (bilinen bug SCRUM-248)\", () => pm.expect(pm.response.json().object.password).to.be.oneOf([null, undefined]));",
+                  "}"
                 ]
               }
             }
@@ -727,11 +757,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "{",
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
                   "const data = pm.response.json().data;",
                   "pm.test(\"Sayfalı yanıt\", () => pm.expect(data).to.include.all.keys(\"content\", \"totalElements\"));",
                   "pm.test(\"Her siparişte durum ve ödeme yöntemi var\", () => data.content.forEach(o => { pm.expect(o.orderStatus).to.exist; pm.expect(o.paymentMethod).to.exist; }));",
-                  "pm.test(\"Kalem fiyatı 0 olmamalı (bilinen bug SCRUM-250)\", () => data.content.forEach(o => o.orderItems.forEach(i => pm.expect(i.totalPrice).to.be.above(0))));"
+                  "pm.test(\"Kalem fiyatı 0 olmamalı (bilinen bug SCRUM-250)\", () => data.content.forEach(o => o.orderItems.forEach(i => pm.expect(i.totalPrice).to.be.above(0))));",
+                  "}"
                 ]
               }
             }
@@ -779,7 +811,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status 401\", () => pm.response.to.have.status(401));"
+                  "{",
+                  "pm.test(\"Status 401\", () => pm.response.to.have.status(401));",
+                  "}"
                 ]
               }
             }
@@ -821,7 +855,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));"
+                  "{",
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "}"
                 ]
               }
             }
@@ -878,10 +914,12 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "{",
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
                   "const data = pm.response.json().data;",
                   "pm.test(\"cartId var\", () => pm.expect(data.cartId).to.exist);",
-                  "pm.test(\"Ürün 5 sepette\", () => pm.expect(data.items.map(i => i.productId)).to.include(5));"
+                  "pm.test(\"Ürün 5 sepette\", () => pm.expect(data.items.map(i => i.productId)).to.include(5));",
+                  "}"
                 ]
               }
             }
@@ -928,7 +966,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status 200/204\", () => pm.expect(pm.response.code).to.be.oneOf([200, 204]));"
+                  "{",
+                  "pm.test(\"Status 200/204\", () => pm.expect(pm.response.code).to.be.oneOf([200, 204]));",
+                  "}"
                 ]
               }
             }
