@@ -80,9 +80,10 @@ Postman: koleksiyon ve environment dosyalarını Postman'e import edin, `userEma
 | Suite | Sonuç |
 |---|---|
 | TestNG UI (madde 13) | 48 test – 40 PASS, 8 FAIL (bilinen bug) |
-| Cucumber (madde 14) | 34 senaryo – 29 PASS, 4 FAIL (bilinen bug), 1 SKIP |
+| Cucumber (madde 14) | 34 senaryo – 30 PASS, 4 FAIL (bilinen bug) |
 | Rest Assured (madde 16) | 19 test – 14 PASS, 5 FAIL (bilinen bug) |
 | DB + E2E (madde 17-18) | DB 12 test – 10 PASS, 2 FAIL (bilinen bug); E2E 4/4 PASS (+2 `creates-data` E2E ayrıca koşuldu, 2/2 PASS) |
+| Postman / Newman (madde 15) | 20 istek, 47 assertion – 39 PASS, 8 FAIL (bilinen bug) |
 
 Başarısız testlerin **tamamı** aşağıdaki JIRA bug kayıtlarına karşılık gelir; otomasyon kaynaklı hata yoktur.
 
