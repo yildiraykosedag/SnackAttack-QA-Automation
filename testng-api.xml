@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- Madde 16: Rest Assured + POJO API testleri -->
+<suite name="Snack Attack - API (Rest Assured + POJO)" verbose="1">
+    <test name="API Tests">
+        <groups>
+            <run>
+                <exclude name="creates-data"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.api.ProductApiTest"/>
+            <class name="tests.api.CategoryApiTest"/>
+            <class name="tests.api.ContactMessageApiTest"/>
+            <class name="tests.api.AuthAndCartApiTest"/>
+        </classes>
+    </test>
+</suite>

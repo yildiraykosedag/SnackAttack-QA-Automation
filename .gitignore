@@ -1,0 +1,8 @@
+target/
+configuration.properties
+*.iml
+.idea/
+.vscode/
+test-output/
+allure-results/
+screenshots/

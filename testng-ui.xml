@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- Madde 13: Selenium + TestNG (POM) UI testleri -->
+<suite name="Snack Attack - UI (TestNG + POM)" verbose="1">
+    <test name="UI Tests">
+        <groups>
+            <run>
+                <exclude name="creates-data"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.ui.US01_RegisterTest"/>
+            <class name="tests.ui.US02_LoginTest"/>
+            <class name="tests.ui.US06_ProductsTest"/>
+            <class name="tests.ui.US07_ProductDetailTest"/>
+            <class name="tests.ui.US20_ContactTest"/>
+        </classes>
+    </test>
+</suite>
