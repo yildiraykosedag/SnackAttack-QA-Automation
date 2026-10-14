@@ -109,6 +109,21 @@ Başarısız testlerin **tamamı** aşağıdaki JIRA bug kayıtlarına karşıl�
 | SCRUM-251 | Sipariş sonrası sepet temizlenmiyor | Manuel (API) |
 | SCRUM-252 | Kullanıcı kendi siparişini `GET /api/orders/{id}` ile göremiyor (400 Access Denied) | Manuel (API) |
 | SCRUM-253 | My Orders: durum filtresi yok, ödeme yöntemi / saat boş, TRY sipariş $ ile gösteriliyor | Manuel (UI) |
+| SCRUM-257 | Admin ürün silme isteği yanlış sunucuya gidiyor (`DELETE /api/products/{id}` → 404) | Manuel (Admin UI) |
+| SCRUM-258 | Kategori seçilmeden yeni ürün eklenebiliyor | Manuel (Admin UI) |
+| SCRUM-259 | İndirim fiyattan büyük girilebiliyor; indirim fiyata yansımıyor | Manuel (Admin UI) |
+| SCRUM-260 | Ürün Düzenleme formunda "Active" seçeneği yok | Manuel (Admin UI) |
+| SCRUM-261 / 262 | İlave (addition) formunda Name/Description doğrulaması yok; Price/Category eksikse sessiz hata | Manuel (Admin UI) |
+| SCRUM-263 / 268 / 269 | Support Requests: Email ve Time filtreleri hatalı, boş sonuçta bilgilendirme yok | Manuel (Admin UI) |
+| SCRUM-264 / 267 | Order Management: CANCELED sipariş PENDING görünüyor, sipariş detayı yok | Manuel (Admin UI) |
+| SCRUM-265 | Payment Management'ta ödemeler listelenmiyor | Manuel (Admin UI) |
+| SCRUM-266 | Ürünü olan kategori silinirken 500, uyarı yok | Manuel (Admin UI) |
+
+## Manuel koşum özeti (Xray Test Execution SCRUM-243)
+
+192 test case – **99 PASSED, 47 FAILED, 43 BLOCKED, 3 NOT RUN**. Admin paneli testleri 15.10.2026'da `mehmet@admin.com`
+ile koşuldu; ortak ortamı korumak için oluşturma/silme senaryoları yalnızca test verisi ("QA YK …") üzerinde yapıldı.
+BLOCKED/NOT RUN olanlar şifre girişi, hesap oluşturma veya paylaşımlı veride kalıcı değişiklik gerektiren senaryolardır.
 
 ## Teslim belgeleri (`docs/`)
 
@@ -118,7 +133,7 @@ Başarısız testlerin **tamamı** aşağıdaki JIRA bug kayıtlarına karşıl�
 | `Snack_Attack_Test_Cases_Yildiray_Kosedag.xlsx` | 2-5, 10 – Site / User Story analizi, 192 test case, koşum sonuçları, RTM |
 | `Xray_Test_Import_SnackAttack.csv` | 8 – Xray Test Case Importer dosyası |
 
-JIRA: `SCRUM` projesi – Story SCRUM-8…28, Test SCRUM-37…228, Test Plan SCRUM-242, Test Execution SCRUM-243, Bug SCRUM-29…36, 229…241, 244…253.
+JIRA: `SCRUM` projesi – Story SCRUM-8…28, Test SCRUM-37…228, Test Plan SCRUM-242, Test Execution SCRUM-243, Bug SCRUM-29…36, 229…241, 244…269.
 
 ## Windows / Türkçe ortam notları
 
