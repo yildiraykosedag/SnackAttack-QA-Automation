@@ -121,10 +121,13 @@ Başarısız testlerin **tamamı** aşağıdaki JIRA bug kayıtlarına karşıl�
 | SCRUM-270 | Admin kaydı sonrası "Success" yerine "Registration successful! You can now log in." | Manuel (Admin UI) |
 | SCRUM-271 | Hatalı girişte ham "CredentialsSignin" kodu gösteriliyor (user + admin) | Manuel (UI) |
 | SCRUM-272 | Ana admin (admin@example.com) silinmeye karşı korunmuyor | Manuel (Admin UI) |
+| SCRUM-273 | Kullanıcı/admin silme ve kategori ekleme/silmede başarı mesajı yok | Manuel (Admin UI) |
+| SCRUM-274 | Admin liste ekranlarında beklenen kolonlar eksik | Manuel (Admin UI) |
+| SCRUM-275 | Admin ürün aramasında sonuç yokken bilgilendirme yok | Manuel (Admin UI) |
 
 ## Manuel koşum özeti (Xray Test Execution SCRUM-243)
 
-192 test case'in tamamı koşuldu – **128 PASSED, 64 FAILED** (BLOCKED / NOT RUN yok). Admin paneli testleri 15.10.2026'da
+192 test case'in tamamı koşuldu – **120 PASSED, 72 FAILED** (BLOCKED / NOT RUN yok). Admin paneli testleri 15.10.2026'da
 `mehmet@admin.com` ile koşuldu; ortak ortamı korumak için oluşturma/silme senaryoları test verisi ("QA YK …", test admini /
 test kullanıcısı, otomasyonun oluşturduğu iletişim mesajı) üzerinde yapıldı. Arayüzden sipariş verilemediği için (SCRUM-232)
 sipariş statüsü senaryoları mevcut Order #2 üzerinden yürütüldü.
@@ -137,7 +140,7 @@ sipariş statüsü senaryoları mevcut Order #2 üzerinden yürütüldü.
 | `Snack_Attack_Test_Cases_Yildiray_Kosedag.xlsx` | 2-5, 10 – Site / User Story analizi, 192 test case, koşum sonuçları, RTM |
 | `Xray_Test_Import_SnackAttack.csv` | 8 – Xray Test Case Importer dosyası |
 
-JIRA: `SCRUM` projesi – Story SCRUM-8…28, Test SCRUM-37…228, Test Plan SCRUM-242, Test Execution SCRUM-243, Bug SCRUM-29…36, 229…241, 244…272.
+JIRA: `SCRUM` projesi – Story SCRUM-8…28, Test SCRUM-37…228, Test Plan SCRUM-242, Test Execution SCRUM-243, Bug SCRUM-29…36, 229…241, 244…275.
 
 ## Windows / Türkçe ortam notları
 

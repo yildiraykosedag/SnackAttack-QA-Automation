@@ -195,37 +195,37 @@
   {
    "testKey": "SCRUM-68",
    "status": "PASSED",
-   "comment": "Admin Management > New formunda FirstName boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Admin Management > New formu boş gönderildiğinde (Register) FirstName alanının altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-69",
    "status": "PASSED",
-   "comment": "Admin Management > New formunda LastName boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Admin Management > New formu boş gönderildiğinde (Register) LastName alanının altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-70",
    "status": "PASSED",
-   "comment": "Admin Management > New formunda Phone Number boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Admin Management > New formu boş gönderildiğinde (Register) Phone Number alanının altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-71",
    "status": "PASSED",
-   "comment": "Admin Management > New formunda Email boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Admin Management > New formu boş gönderildiğinde (Register) Email alanının altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-72",
    "status": "PASSED",
-   "comment": "Admin Management > New formunda Username boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Admin Management > New formu boş gönderildiğinde (Register) Username alanının altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-73",
    "status": "PASSED",
-   "comment": "Admin Management > New formunda Password boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Admin Management > New formu boş gönderildiğinde (Register) Password alanının altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-74",
    "status": "PASSED",
-   "comment": "Admin Management > New formunda Confirm Password boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Admin Management > New formu boş gönderildiğinde (Register) Confirm Password alanının altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-75",
@@ -260,12 +260,12 @@
   {
    "testKey": "SCRUM-81",
    "status": "PASSED",
-   "comment": "Admin Management > New formunda Region Code boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Admin Management > New formu boş gönderildiğinde (Register) Region Code alanının altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-82",
    "status": "PASSED",
-   "comment": "Admin Management > New formunda Address boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Admin Management > New formu boş gönderildiğinde (Register) Address alanının altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-83",
@@ -702,8 +702,11 @@
   },
   {
    "testKey": "SCRUM-150",
-   "status": "PASSED",
-   "comment": "Test kullanıcısı (ID 21, kosedagyildiray5+qa1@gmail.com) silindi, listeden kaldırıldı. Not: başarı mesajı görüntülenmedi."
+   "status": "FAILED",
+   "comment": "Test kullanıcısı (ID 21, kosedagyildiray5+qa1@gmail.com) silindi ve listeden kaldırıldı; ancak başarı mesajı görüntülenmedi. (Bug: SCRUM-273)",
+   "defects": [
+    "SCRUM-273"
+   ]
   },
   {
    "testKey": "SCRUM-151",
@@ -727,8 +730,11 @@
   },
   {
    "testKey": "SCRUM-155",
-   "status": "PASSED",
-   "comment": "Test admini (ID 20, qa.ykadmin1@example.com) silindi, listeden kaldırıldı. Not: başarı mesajı görüntülenmedi."
+   "status": "FAILED",
+   "comment": "Test admini (ID 20, qa.ykadmin1@example.com) silindi ve listeden kaldırıldı; ancak başarı mesajı görüntülenmedi. (Bug: SCRUM-273)",
+   "defects": [
+    "SCRUM-273"
+   ]
   },
   {
    "testKey": "SCRUM-156",
@@ -784,13 +790,16 @@
   },
   {
    "testKey": "SCRUM-164",
-   "status": "PASSED",
-   "comment": "Product Management'ta ürünler ID, Image, Name, Description, Price, Order Count, Category, Created At ile görüntülendi (3 sayfa)."
+   "status": "FAILED",
+   "comment": "Ürünler ID, Image, Name, Description, Price, Order Count, Category, Created At ile görüntülendi; ancak indirim ve Available/Active durumu listede yok. (Bug: SCRUM-274)",
+   "defects": [
+    "SCRUM-274"
+   ]
   },
   {
    "testKey": "SCRUM-165",
    "status": "PASSED",
-   "comment": "Ürünler sayfalama ile listelendi. Not: tüm ürünlerde Order Count = 35."
+   "comment": "Admin Product Management'ta \"Pizza\" filtresi seçildi → yalnızca PIZZA kategorisindeki 6 ürün listelendi."
   },
   {
    "testKey": "SCRUM-166",
@@ -799,13 +808,16 @@
   },
   {
    "testKey": "SCRUM-167",
-   "status": "PASSED",
-   "comment": "\"zzqxyokurun\" araması → ürün listelenmedi. Not: bilgilendirme mesajı yok."
+   "status": "FAILED",
+   "comment": "\"zzqxyokurun\" araması → ürün listelenmedi ancak bilgilendirme mesajı görüntülenmedi. (Bug: SCRUM-275)",
+   "defects": [
+    "SCRUM-275"
+   ]
   },
   {
    "testKey": "SCRUM-168",
    "status": "PASSED",
-   "comment": "\"QA YK Tam Urun\" (100, indirim 10, HAMBURGER, Soslar, resim) → \"Ürün başarıyla oluşturuldu!\"; listede ve kullanıcı Products sayfasında görüntülendi. Not: indirim fiyata yansımıyor."
+   "comment": "\"QA YK Tam Urun\" (100, indirim 10, HAMBURGER, Soslar, resim) → \"Ürün başarıyla oluşturuldu!\"; listede ve kullanıcı Products sayfasında görüntülendi. Not: indirim fiyata yansımıyor (SCRUM-259)."
   },
   {
    "testKey": "SCRUM-169",
@@ -881,7 +893,7 @@
   {
    "testKey": "SCRUM-182",
    "status": "PASSED",
-   "comment": "Fiyat 120 ve indirim 20 kaydedildi. Not: indirim kullanıcı tarafında fiyata yansımıyor."
+   "comment": "Fiyat 100→120 ve indirim 10→20 kaydedildi, düzenleme formunda ve listede yeni fiyat görüntülendi. Not: indirim kullanıcı tarafında fiyata yansımıyor (SCRUM-259); güncelleme sonrası başarı mesajı \"Ürün başarıyla güncellendi!\"."
   },
   {
    "testKey": "SCRUM-183",
@@ -936,8 +948,11 @@
   },
   {
    "testKey": "SCRUM-192",
-   "status": "PASSED",
-   "comment": "Category Management Panel: ID, Name, Active, Created At ile 6 kategori görüntülendi."
+   "status": "FAILED",
+   "comment": "Category Management Panel ID, Name, Active, Created At ile görüntülendi; ancak kategori açıklaması listede yok. (Bug: SCRUM-274)",
+   "defects": [
+    "SCRUM-274"
+   ]
   },
   {
    "testKey": "SCRUM-193",
@@ -946,8 +961,11 @@
   },
   {
    "testKey": "SCRUM-194",
-   "status": "PASSED",
-   "comment": "\"QAYKTEST\" eklendi, listede görüntülendi (ID 7). Not: başarı mesajı görüntülenmedi."
+   "status": "FAILED",
+   "comment": "\"QAYKTEST\" kategorisi eklendi ve listede görüntülendi (ID 7); ancak başarı mesajı görüntülenmedi. (Bug: SCRUM-273)",
+   "defects": [
+    "SCRUM-273"
+   ]
   },
   {
    "testKey": "SCRUM-195",
@@ -956,8 +974,11 @@
   },
   {
    "testKey": "SCRUM-196",
-   "status": "PASSED",
-   "comment": "\"QAYKTEST\" silindi, listeden kaldırıldı. Not: onay metni \"delete this product?\" (yanlış metin)."
+   "status": "FAILED",
+   "comment": "\"QAYKTEST\" silindi ve listeden kaldırıldı; ancak başarı mesajı görüntülenmedi, onay metni \"delete this product?\" (yanlış metin). (Bug: SCRUM-273)",
+   "defects": [
+    "SCRUM-273"
+   ]
   },
   {
    "testKey": "SCRUM-197",
@@ -1103,8 +1124,11 @@
   },
   {
    "testKey": "SCRUM-220",
-   "status": "PASSED",
-   "comment": "Support Requests ID, Name, Email, Subject ile listelendi (7 sayfa)."
+   "status": "FAILED",
+   "comment": "Support Requests ID, Name, Email, Subject ile listelendi (7 sayfa); ancak Date bilgisi listede yok, yalnızca detay penceresinde görülebiliyor. (Bug: SCRUM-274)",
+   "defects": [
+    "SCRUM-274"
+   ]
   },
   {
    "testKey": "SCRUM-221",
