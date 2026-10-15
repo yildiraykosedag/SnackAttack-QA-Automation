@@ -2,9 +2,9 @@
  "testExecutionKey": "SCRUM-243",
  "info": {
   "summary": "Snack Attack Sprint 1 – Manuel Test Execution #1",
-  "description": "US_01 – US_21 manuel koşum. Ortam: https://snackattack.deployedprojects.xyz/ (Chrome, Windows 11). Test eden: Yıldıray Kösedağ. 10.10.2026: kullanıcı testleri; 15.10.2026: admin (mehmet@admin.com) testleri. BLOCKED: şifre girişi gerektiren (US_03, US_04) ve ortak ortamda veri değiştiren adımlar.",
+  "description": "US_01 – US_21 manuel koşum (192 test case). Ortam: https://snackattack.deployedprojects.xyz/ (Chrome, Windows 11). Test eden: Yıldıray Kösedağ. 10.10.2026: kullanıcı testleri; 15.10.2026: admin (mehmet@admin.com) testleri ve kalan senaryolar.",
   "startDate": "2026-10-10T10:00:00+03:00",
-  "finishDate": "2026-10-15T02:00:00+03:00",
+  "finishDate": "2026-10-15T14:00:00+03:00",
   "testPlanKey": "SCRUM-242"
  },
  "tests": [
@@ -98,8 +98,8 @@
   },
   {
    "testKey": "SCRUM-54",
-   "status": "TODO",
-   "comment": "Koşulmadı – kayıtlı email ile gerçek kayıt isteği gönderilmesi gerektiğinden bir sonraki koşuma bırakıldı."
+   "status": "PASSED",
+   "comment": "Kayıtlı email (kosedagyildiray5@gmail.com) ile Register → \"Error : User with email kosedagyildiray5@gmail.com is ALREADY REGISTERED\", kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-55",
@@ -164,13 +164,19 @@
   },
   {
    "testKey": "SCRUM-63",
-   "status": "TODO",
-   "comment": "Koşulmadı – gerçek hesaba yanlış şifre ile giriş denemesi Yıldıray Kösedağ tarafından manuel yapılacak."
+   "status": "FAILED",
+   "comment": "Kayıtlı email + yanlış şifre → giriş yapılmadı ancak ham \"CredentialsSignin\" görüntülendi. (Bug: SCRUM-271)",
+   "defects": [
+    "SCRUM-271"
+   ]
   },
   {
    "testKey": "SCRUM-64",
-   "status": "TODO",
-   "comment": "Koşulmadı – kayıtsız email ile giriş denemesi Yıldıray Kösedağ tarafından manuel yapılacak."
+   "status": "FAILED",
+   "comment": "Kayıtsız email → giriş yapılmadı ancak ham \"CredentialsSignin\" görüntülendi. (Bug: SCRUM-271)",
+   "defects": [
+    "SCRUM-271"
+   ]
   },
   {
    "testKey": "SCRUM-65",
@@ -187,148 +193,175 @@
   },
   {
    "testKey": "SCRUM-67",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "FAILED",
+   "comment": "Geçerli verilerle kayıt başarılı (Admin Management'ta ID 20 \"QA YKAdmin\" listelendi) ancak \"Success\" yerine \"Registration successful! You can now log in.\" mesajı görüntülendi. (Bug: SCRUM-270)",
+   "defects": [
+    "SCRUM-270"
+   ]
   },
   {
    "testKey": "SCRUM-68",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Admin Management > New formunda FirstName boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-69",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Admin Management > New formunda LastName boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-70",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Admin Management > New formunda Phone Number boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-71",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Admin Management > New formunda Email boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-72",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Admin Management > New formunda Username boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-73",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Admin Management > New formunda Password boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-74",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Admin Management > New formunda Confirm Password boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-75",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Password ≠ Confirm Password → \"Passwords must match.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-76",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "+90 (TR) ile Phone \"54a1234567\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-77",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "+90 (TR) ile Phone \"541-123-45!\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-78",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "+90 (TR) ile Phone \"54112345 (8 hane)\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-79",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "+90 (TR) ile Phone \"541123456789 (12 hane)\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-80",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "+1 (US) seçili, Phone \"5411234567\" (TR numarası) → \"Invalid phone number.\" görüntülendi."
   },
   {
    "testKey": "SCRUM-81",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Admin Management > New formunda Region Code boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-82",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Admin Management > New formunda Address boşken Register → alanın altında \"This field is required.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-83",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Email \"alican\" → \"Invalid email address.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-84",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Kayıtlı email (mehmet@admin.com) → \"Error : User with email mehmet@admin.com is ALREADY REGISTERED\", kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-85",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Password ve Confirm Password alanları type=\"password\"; girilen değer maskelenmiş (●●●) görüntülendi."
   },
   {
    "testKey": "SCRUM-86",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "mehmet@admin.com ile \"Login successful!\"; /dashboard/admin \"Welcome to Admin Panel\" ve yönetim menüleri görüntülendi."
   },
   {
    "testKey": "SCRUM-87",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "FAILED",
+   "comment": "Email \"mehmetadmin.com\" → \"Invalid email\" yerine \"Invalid email address\" görüntülendi. (Bug: SCRUM-33)",
+   "defects": [
+    "SCRUM-33"
+   ]
   },
   {
    "testKey": "SCRUM-88",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "FAILED",
+   "comment": "Email \"mehmet@admincom\" için hiçbir uyarı görüntülenmedi. (Bug: SCRUM-236)",
+   "defects": [
+    "SCRUM-236"
+   ]
   },
   {
    "testKey": "SCRUM-89",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "FAILED",
+   "comment": "Password boşken \"Password is required\" yerine \"Required\" görüntülendi. (Bug: SCRUM-32)",
+   "defects": [
+    "SCRUM-32"
+   ]
   },
   {
    "testKey": "SCRUM-90",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "FAILED",
+   "comment": "Email ve Password boşken Login butonu aktif (disabled=false); tıklanınca \"Required\" uyarıları çıkıyor. (Bug: SCRUM-31)",
+   "defects": [
+    "SCRUM-31"
+   ]
   },
   {
    "testKey": "SCRUM-91",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "FAILED",
+   "comment": "Yalnızca Email girili iken Login butonu aktif. (Bug: SCRUM-31)",
+   "defects": [
+    "SCRUM-31"
+   ]
   },
   {
    "testKey": "SCRUM-92",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "FAILED",
+   "comment": "Yalnızca Password girili iken Login butonu aktif. (Bug: SCRUM-31)",
+   "defects": [
+    "SCRUM-31"
+   ]
   },
   {
    "testKey": "SCRUM-93",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "FAILED",
+   "comment": "Kayıtlı email + yanlış şifre → giriş yapılmadı ancak anlaşılır mesaj yerine ham \"CredentialsSignin\" görüntülendi. (Bug: SCRUM-271)",
+   "defects": [
+    "SCRUM-271"
+   ]
   },
   {
    "testKey": "SCRUM-94",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "FAILED",
+   "comment": "Kayıtsız email → giriş yapılmadı ancak ham \"CredentialsSignin\" görüntülendi. (Bug: SCRUM-271)",
+   "defects": [
+    "SCRUM-271"
+   ]
   },
   {
    "testKey": "SCRUM-95",
-   "status": "BLOCKED",
-   "comment": "Bloke – Şifre girişi gerektiriyor; kullanıcı tarafından manuel koşulacak."
+   "status": "PASSED",
+   "comment": "Password alanı type=\"password\"; girilen şifre maskelenmiş görüntülendi."
   },
   {
    "testKey": "SCRUM-96",
@@ -604,13 +637,19 @@
   },
   {
    "testKey": "SCRUM-140",
-   "status": "BLOCKED",
-   "comment": "Bloke – CONFIRMED/DELIVERED durumunda sipariş için Admin/Seller hesabı gerekli."
+   "status": "FAILED",
+   "comment": "CONFIRMED siparişte Cancel Order butonu görünür ve aktif; onaylanınca \"Failed to cancel the order.\" (iptal olmadı ama buton gizlenmiyor/pasif değil). (Bug: SCRUM-254)",
+   "defects": [
+    "SCRUM-254"
+   ]
   },
   {
    "testKey": "SCRUM-141",
-   "status": "BLOCKED",
-   "comment": "Bloke – CONFIRMED/DELIVERED durumunda sipariş için Admin/Seller hesabı gerekli."
+   "status": "FAILED",
+   "comment": "DELIVERED siparişte Cancel Order butonu görünür ve aktif; onaylanınca \"Failed to cancel the order.\". (Bug: SCRUM-254)",
+   "defects": [
+    "SCRUM-254"
+   ]
   },
   {
    "testKey": "SCRUM-142",
@@ -639,13 +678,19 @@
   },
   {
    "testKey": "SCRUM-145",
-   "status": "BLOCKED",
-   "comment": "Bloke – CONFIRMED durumunda sipariş oluşturmak için Admin/Seller hesabı gerekli. Ayrıca sayfada durum filtresi yok (SCRUM-253). (Bug: SCRUM-253)"
+   "status": "FAILED",
+   "comment": "CONFIRMED Order #2 listelendi ancak statü filtresi yok, \"CONFIRMED\" seçilemiyor. (Bug: SCRUM-253)",
+   "defects": [
+    "SCRUM-253"
+   ]
   },
   {
    "testKey": "SCRUM-146",
-   "status": "BLOCKED",
-   "comment": "Bloke – DELIVERED durumunda sipariş oluşturmak için Admin/Seller hesabı gerekli. Ayrıca sayfada durum filtresi yok (SCRUM-253). (Bug: SCRUM-253)"
+   "status": "FAILED",
+   "comment": "DELIVERED Order #2 listelendi ancak statü filtresi yok, \"DELIVERED\" seçilemiyor. (Bug: SCRUM-253)",
+   "defects": [
+    "SCRUM-253"
+   ]
   },
   {
    "testKey": "SCRUM-147",
@@ -664,18 +709,18 @@
   },
   {
    "testKey": "SCRUM-150",
-   "status": "BLOCKED",
-   "comment": "Bloke – Ortak test ortamında veri değiştiren bu adım (hesap oluşturma/silme, sipariş statüsü değiştirme veya mesaj silme) kullanıcı tarafından koşulacak."
+   "status": "PASSED",
+   "comment": "Test kullanıcısı (ID 21, kosedagyildiray5+qa1@gmail.com) silindi, listeden kaldırıldı. Not: başarı mesajı görüntülenmedi."
   },
   {
    "testKey": "SCRUM-151",
-   "status": "BLOCKED",
-   "comment": "Bloke – Ortak test ortamında veri değiştiren bu adım (hesap oluşturma/silme, sipariş statüsü değiştirme veya mesaj silme) kullanıcı tarafından koşulacak."
+   "status": "PASSED",
+   "comment": "Silme onayında İptal → kullanıcı listede kaldı. Not: onay metni \"delete this admin?\" (yanlış metin)."
   },
   {
    "testKey": "SCRUM-152",
-   "status": "BLOCKED",
-   "comment": "Bloke – Ortak test ortamında veri değiştiren bu adım (hesap oluşturma/silme, sipariş statüsü değiştirme veya mesaj silme) kullanıcı tarafından koşulacak."
+   "status": "PASSED",
+   "comment": "Silinen kullanıcı ile giriş yapılamadı (\"CredentialsSignin\"). Not: aktivasyon maili gelmediğinden hesap silme öncesinde de aktif değildi."
   },
   {
    "testKey": "SCRUM-153",
@@ -689,18 +734,21 @@
   },
   {
    "testKey": "SCRUM-155",
-   "status": "BLOCKED",
-   "comment": "Bloke – Ortak test ortamında veri değiştiren bu adım (hesap oluşturma/silme, sipariş statüsü değiştirme veya mesaj silme) kullanıcı tarafından koşulacak."
+   "status": "PASSED",
+   "comment": "Test admini (ID 20, qa.ykadmin1@example.com) silindi, listeden kaldırıldı. Not: başarı mesajı görüntülenmedi."
   },
   {
    "testKey": "SCRUM-156",
-   "status": "BLOCKED",
-   "comment": "Bloke – Ortak test ortamında veri değiştiren bu adım (hesap oluşturma/silme, sipariş statüsü değiştirme veya mesaj silme) kullanıcı tarafından koşulacak."
+   "status": "PASSED",
+   "comment": "\"Are you sure you want to delete this admin?\" onayında İptal → admin listede kaldı."
   },
   {
    "testKey": "SCRUM-157",
-   "status": "BLOCKED",
-   "comment": "Bloke – Ortak test ortamında veri değiştiren bu adım (hesap oluşturma/silme, sipariş statüsü değiştirme veya mesaj silme) kullanıcı tarafından koşulacak."
+   "status": "FAILED",
+   "comment": "admin@example.com satırında Delete butonu aktif; uyarı olmadan silme onayı soruluyor (onay İptal edildi, hesap silinmedi). (Bug: SCRUM-272)",
+   "defects": [
+    "SCRUM-272"
+   ]
   },
   {
    "testKey": "SCRUM-158",
@@ -725,18 +773,21 @@
   },
   {
    "testKey": "SCRUM-161",
-   "status": "BLOCKED",
-   "comment": "Bloke – Ortak test ortamında veri değiştiren bu adım (hesap oluşturma/silme, sipariş statüsü değiştirme veya mesaj silme) kullanıcı tarafından koşulacak."
+   "status": "PASSED",
+   "comment": "Order #2 CONFIRMED yapıldı → \"Order status updated.\"; kullanıcı My Orders'ta \"Status: CONFIRMED\". Not: PENDING sipariş olmadığından admin panelinde PENDING görünen Order #2 kullanıldı."
   },
   {
    "testKey": "SCRUM-162",
-   "status": "BLOCKED",
-   "comment": "Bloke – Ortak test ortamında veri değiştiren bu adım (hesap oluşturma/silme, sipariş statüsü değiştirme veya mesaj silme) kullanıcı tarafından koşulacak."
+   "status": "PASSED",
+   "comment": "Order #2 DELIVERED yapıldı → \"Order status updated.\"; kullanıcı My Orders'ta \"Status: DELIVERED\"."
   },
   {
    "testKey": "SCRUM-163",
-   "status": "BLOCKED",
-   "comment": "Bloke – Ortak test ortamında veri değiştiren bu adım (hesap oluşturma/silme, sipariş statüsü değiştirme veya mesaj silme) kullanıcı tarafından koşulacak. Not: CANCELED Order #2'nin statü dropdown'ı aktif görünüyor. (Bug: SCRUM-264)"
+   "status": "FAILED",
+   "comment": "CANCELED Order #2'nin statüsü CONFIRMED yapılabildi (\"Order status updated.\"); pasif/uyarı yok. (Bug: SCRUM-264)",
+   "defects": [
+    "SCRUM-264"
+   ]
   },
   {
    "testKey": "SCRUM-164",
@@ -1108,8 +1159,8 @@
   },
   {
    "testKey": "SCRUM-228",
-   "status": "BLOCKED",
-   "comment": "Bloke – Ortak test ortamında veri değiştiren bu adım (hesap oluşturma/silme, sipariş statüsü değiştirme veya mesaj silme) kullanıcı tarafından koşulacak."
+   "status": "PASSED",
+   "comment": "Test mesajı (ID 115) silindi → \"Message deleted successfully\", listeden kaldırıldı."
   }
  ]
 }

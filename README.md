@@ -118,12 +118,16 @@ Başarısız testlerin **tamamı** aşağıdaki JIRA bug kayıtlarına karşıl�
 | SCRUM-264 / 267 | Order Management: CANCELED sipariş PENDING görünüyor, sipariş detayı yok | Manuel (Admin UI) |
 | SCRUM-265 | Payment Management'ta ödemeler listelenmiyor | Manuel (Admin UI) |
 | SCRUM-266 | Ürünü olan kategori silinirken 500, uyarı yok | Manuel (Admin UI) |
+| SCRUM-270 | Admin kaydı sonrası "Success" yerine "Registration successful! You can now log in." | Manuel (Admin UI) |
+| SCRUM-271 | Hatalı girişte ham "CredentialsSignin" kodu gösteriliyor (user + admin) | Manuel (UI) |
+| SCRUM-272 | Ana admin (admin@example.com) silinmeye karşı korunmuyor | Manuel (Admin UI) |
 
 ## Manuel koşum özeti (Xray Test Execution SCRUM-243)
 
-192 test case – **99 PASSED, 47 FAILED, 43 BLOCKED, 3 NOT RUN**. Admin paneli testleri 15.10.2026'da `mehmet@admin.com`
-ile koşuldu; ortak ortamı korumak için oluşturma/silme senaryoları yalnızca test verisi ("QA YK …") üzerinde yapıldı.
-BLOCKED/NOT RUN olanlar şifre girişi, hesap oluşturma veya paylaşımlı veride kalıcı değişiklik gerektiren senaryolardır.
+192 test case'in tamamı koşuldu – **128 PASSED, 64 FAILED** (BLOCKED / NOT RUN yok). Admin paneli testleri 15.10.2026'da
+`mehmet@admin.com` ile koşuldu; ortak ortamı korumak için oluşturma/silme senaryoları test verisi ("QA YK …", test admini /
+test kullanıcısı, otomasyonun oluşturduğu iletişim mesajı) üzerinde yapıldı. Arayüzden sipariş verilemediği için (SCRUM-232)
+sipariş statüsü senaryoları mevcut Order #2 üzerinden yürütüldü.
 
 ## Teslim belgeleri (`docs/`)
 
@@ -133,7 +137,7 @@ BLOCKED/NOT RUN olanlar şifre girişi, hesap oluşturma veya paylaşımlı veri
 | `Snack_Attack_Test_Cases_Yildiray_Kosedag.xlsx` | 2-5, 10 – Site / User Story analizi, 192 test case, koşum sonuçları, RTM |
 | `Xray_Test_Import_SnackAttack.csv` | 8 – Xray Test Case Importer dosyası |
 
-JIRA: `SCRUM` projesi – Story SCRUM-8…28, Test SCRUM-37…228, Test Plan SCRUM-242, Test Execution SCRUM-243, Bug SCRUM-29…36, 229…241, 244…269.
+JIRA: `SCRUM` projesi – Story SCRUM-8…28, Test SCRUM-37…228, Test Plan SCRUM-242, Test Execution SCRUM-243, Bug SCRUM-29…36, 229…241, 244…272.
 
 ## Windows / Türkçe ortam notları
 
