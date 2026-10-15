@@ -5,23 +5,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.snackattack</groupId>
-    <artifactId>snackattack-qa-automation</artifactId>
+    <artifactId>snackattack-qa-testng</artifactId>
     <version>1.0.0</version>
-    <name>Snack Attack QA Automation</name>
-    <description>Selenium + TestNG (POM), Cucumber (BDD), Rest Assured (POJO), DB (JDBC) ve E2E test otomasyonu</description>
+    <name>Snack Attack QA – Selenium + TestNG (POM)</name>
+    <description>Selenium + TestNG ile Page Object Model mimarisinde UI test otomasyonu</description>
 
     <properties>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>4.27.0</selenium.version>
         <testng.version>7.10.2</testng.version>
-        <cucumber.version>7.20.1</cucumber.version>
-        <restassured.version>5.5.0</restassured.version>
         <!-- Windows: kullanıcı klasörü ASCII dışı karakter içerirse (ör. ç) Selenium "Unable to establish loopback connection" verir -->
         <unixdomain.tmpdir>C:/Windows/Temp</unixdomain.tmpdir>
-        <jackson.version>2.18.1</jackson.version>
-        <!-- mvn test -Dsuite=testng-ui.xml  (varsayÄ±lan: tÃ¼m suite'ler) -->
-        <suite>testng-all.xml</suite>
+        <!-- mvn test -Dsuite=testng.xml -->
+        <suite>testng.xml</suite>
     </properties>
 
     <dependencies>
@@ -34,36 +31,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>${restassured.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.7.4</version>
         </dependency>
         <dependency>
             <groupId>net.datafaker</groupId>
@@ -92,9 +59,9 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <!-- Bilinen bug'ları doğrulayan testler FAIL olur; rapor üretimi kesilmesin diye build durdurulmaz -->
                     <testFailureIgnore>true</testFailureIgnore>
-                    <!-- tr_TR locale "failure".toUpperCase() = "FAİLURE" yaptığı için Rest Assured 4xx/5xx yanıtlarda hata fırlatır -->
-                    <argLine>-Duser.language=en -Duser.country=US -Dfile.encoding=UTF-8 -Djdk.net.unixdomain.tmpdir=${unixdomain.tmpdir}</argLine>
+                    <argLine>-Dfile.encoding=UTF-8 -Djdk.net.unixdomain.tmpdir=${unixdomain.tmpdir}</argLine>
                 </configuration>
             </plugin>
         </plugins>

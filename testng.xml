@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<!-- Madde 13: Selenium + TestNG (POM) UI testleri -->
-<suite name="Snack Attack - UI (TestNG + POM)" verbose="1">
+<!-- Madde 13: Selenium + TestNG (POM) UI testleri. Gerçek kayıt oluşturan "creates-data" grubu varsayılan olarak hariç tutulur. -->
+<suite name="Snack Attack - UI (Selenium + TestNG + POM)" verbose="1">
     <test name="UI Tests">
         <groups>
             <run>
