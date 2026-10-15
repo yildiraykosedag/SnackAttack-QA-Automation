@@ -15,14 +15,15 @@ import static org.testng.Assert.assertTrue;
 /** US_17 – Kategori uç noktaları. */
 public class CategoryApiTest {
 
-    @Test(description = "GET /category – 6 aktif kategori listelenir")
+    @Test(description = "GET /category – 6 başlangıç kategorisi aktif olarak listelenir")
     public void listCategories() {
         List<Category> categories = given().spec(ApiSpec.spec())
                 .when().get("/category")
                 .then().statusCode(200).body("success", equalTo(true))
                 .extract().jsonPath().getList("data", Category.class);
 
-        assertEquals(categories.size(), 6);
+        // Ortak ortamda admin testleri kategori ekleyebildiği için sabit sayı yerine başlangıç kategorileri doğrulanır.
+        assertTrue(categories.size() >= 6, "En az 6 kategori olmalı");
         assertTrue(categories.stream().allMatch(Category::getActive), "Tüm kategoriler aktif olmalı");
         List<String> names = categories.stream().map(Category::getName).collect(Collectors.toList());
         assertTrue(names.containsAll(List.of("DONER", "HAMBURGER", "PIZZA", "ICECEKLER", "TATLILAR", "SALATALAR")), names.toString());

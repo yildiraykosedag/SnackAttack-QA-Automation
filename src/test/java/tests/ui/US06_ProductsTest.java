@@ -33,7 +33,10 @@ public class US06_ProductsTest extends BaseUiTest {
         page.goToPage("Previous");
         assertEquals(page.productNames(), first);
         page.goToPage("Last");
-        assertTrue(page.productNames().contains("Akdeniz Salata"), "Son sayfada son ürün olmalı");
+        // Ortak ortamda yeni ürün eklenebildiği için son sayfanın içeriği sabit değil; boş olmaması ve ilk sayfadan farklı olması doğrulanır.
+        List<String> last = page.productNames();
+        assertFalse(last.isEmpty(), "Son sayfada ürün olmalı");
+        assertFalse(last.equals(first), "Son sayfa ilk sayfadan farklı olmalı");
         page.goToPage("First");
         assertEquals(page.productNames(), first);
     }

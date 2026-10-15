@@ -21,7 +21,7 @@
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
                   "pm.test(\"Yanıt süresi < 3000 ms\", () => pm.expect(pm.response.responseTime).to.be.below(3000));",
                   "const body = pm.response.json();",
-                  "pm.test(\"Toplam 28 ürün\", () => pm.expect(body.totalElements).to.eql(28));",
+                  "pm.test(\"En az 28 başlangıç ürünü\", () => pm.expect(body.totalElements).to.be.at.least(28));",
                   "pm.test(\"Sayfa boyutu 10\", () => pm.expect(body.content.length).to.eql(10));",
                   "pm.test(\"Tüm fiyatlar pozitif\", () => body.content.forEach(p => pm.expect(p.price).to.be.above(0)));",
                   "pm.test(\"Şema: id, name, price, categories\", () => body.content.forEach(p => pm.expect(p).to.include.all.keys(\"id\", \"name\", \"price\", \"categories\")));",
@@ -316,7 +316,7 @@
                   "{",
                   "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
                   "const data = pm.response.json().data;",
-                  "pm.test(\"6 kategori\", () => pm.expect(data.length).to.eql(6));",
+                  "pm.test(\"En az 6 kategori\", () => pm.expect(data.length).to.be.at.least(6));",
                   "pm.test(\"Hepsi aktif\", () => data.forEach(c => pm.expect(c.active).to.be.true));",
                   "pm.test(\"Beklenen kategoriler\", () => pm.expect(data.map(c => c.name)).to.include.members([\"DONER\", \"HAMBURGER\", \"PIZZA\", \"ICECEKLER\", \"TATLILAR\", \"SALATALAR\"]));",
                   "}"

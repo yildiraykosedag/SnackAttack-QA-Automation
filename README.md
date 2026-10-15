@@ -75,17 +75,21 @@ Postman: koleksiyon ve environment dosyalarını Postman'e import edin, `userEma
 - Açıklamasında **"bilinen bug"** yazan testler, kabul kriterine göre doğru davranışı doğrular ve ilgili JIRA bug kaydı
   açık olduğu sürece **FAIL** olması beklenir. Bug düzeltildiğinde test kendiliğinden geçer.
 
-## Son koşum (10.10.2026, `mvn test -Dheadless=true`)
+## Son koşum (15.10.2026, `mvn test -Dheadless=true`)
 
 | Suite | Sonuç |
 |---|---|
 | TestNG UI (madde 13) | 48 test – 40 PASS, 8 FAIL (bilinen bug) |
 | Cucumber (madde 14) | 34 senaryo – 30 PASS, 4 FAIL (bilinen bug) |
-| Rest Assured (madde 16) | 19 test – 14 PASS, 5 FAIL (bilinen bug) |
-| DB + E2E (madde 17-18) | DB 12 test – 10 PASS, 2 FAIL (bilinen bug); E2E 4/4 PASS (+2 `creates-data` E2E ayrıca koşuldu, 2/2 PASS) |
-| Postman / Newman (madde 15) | 20 istek, 47 assertion – 39 PASS, 8 FAIL (bilinen bug) |
+| Rest Assured (madde 16) | 20 test – 14 PASS, 6 FAIL (bilinen bug) |
+| DB + E2E (madde 17-18) | DB 12 test – 9 PASS, 3 FAIL (bilinen bug); E2E 4/4 PASS (+2 `creates-data` E2E 10.10.2026'da ayrıca koşuldu, 2/2 PASS) |
+| Postman / Newman (madde 15) | 20 istek, 47 assertion – 39 PASS, 8 FAIL (bilinen bug) – 10.10.2026 koşumu |
 
 Başarısız testlerin **tamamı** aşağıdaki JIRA bug kayıtlarına karşılık gelir; otomasyon kaynaklı hata yoktur.
+
+Not: Test ortamı ortak kullanıldığı ve admin testleri ortama ürün/kategori ekleyebildiği için (bu kayıtlar SCRUM-257 / SCRUM-266
+nedeniyle silinemiyor) testler sabit kayıt sayısı yerine başlangıç (seed) verisini ve katmanlar arası tutarlılığı doğrular.
+Kategori seçilmeden eklenen ürün (SCRUM-258) DB_04 ve `everyListedProductHasCategory` testlerinde FAIL olarak yakalanır.
 
 ## Bilinen bug'lar (JIRA – SCRUM projesi)
 

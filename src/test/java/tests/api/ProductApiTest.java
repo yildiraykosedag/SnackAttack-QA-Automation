@@ -34,9 +34,20 @@ public class ProductApiTest {
                 .then().statusCode(200).time(lessThan(5000L))
                 .extract().as(ProductPage.class);
 
-        assertEquals(page.getTotalElements().longValue(), 28L, "Toplam ürün sayısı");
-        assertEquals(page.getContent().size(), 28);
+        // Ortak ortamda admin testleri ürün ekleyebildiği için sabit sayı yerine başlangıç verisi ve sayfa tutarlılığı doğrulanır.
+        assertTrue(page.getTotalElements() >= 28L, "En az 28 başlangıç ürünü olmalı");
+        assertEquals(page.getContent().size(), page.getTotalElements().intValue(), "Tek sayfada tüm ürünler gelmeli");
         assertTrue(page.getContent().stream().allMatch(p -> p.getPrice() != null && p.getPrice() > 0), "Tüm fiyatlar pozitif olmalı");
+    }
+
+    @Test(description = "Bilinen bug SCRUM-258: kategori seçilmeden eklenen ürün kullanıcı listesinde kategorisiz görünüyor")
+    public void everyListedProductHasCategory() {
+        ProductPage page = given().spec(ApiSpec.spec())
+                .queryParam("search", "").queryParam("page", 0).queryParam("size", 50)
+                .when().get("/products/allProduct-client")
+                .then().statusCode(200)
+                .extract().as(ProductPage.class);
+
         assertTrue(page.getContent().stream().allMatch(p -> !p.getCategories().isEmpty()), "Her ürünün kategorisi olmalı");
     }
 

@@ -31,16 +31,19 @@ public class DatabaseTest {
                 "carts", "cart_item", "orders", "order_items", "payments", "contact_message", "product_additions")), tables.toString());
     }
 
-    @Test(description = "DB_03 – US_06: 28 ürün var, hepsinin fiyatı pozitif ve ismi dolu")
+    // Ortak test ortamında admin testleri ürün/kategori ekleyebildiği için sabit sayı yerine başlangıç (seed) verisi doğrulanır.
+    @Test(description = "DB_03 – US_06: başlangıç verisindeki 28 ürün mevcut, tüm ürünlerin fiyatı pozitif ve ismi dolu")
     public void productsAreValid() {
-        assertEquals(DBUtils.count("select count(*) from product"), 28L);
+        assertTrue(DBUtils.count("select count(*) from product") >= 28L, "En az 28 başlangıç ürünü olmalı");
         assertEquals(DBUtils.count("select count(*) from product where price is null or price <= 0"), 0L);
         assertEquals(DBUtils.count("select count(*) from product where name is null or trim(name) = ''"), 0L);
     }
 
-    @Test(description = "DB_04 – US_06: 6 aktif kategori var ve her ürün en az bir kategoriye bağlı")
+    @Test(description = "DB_04 – US_06: 6 başlangıç kategorisi aktif ve her ürün en az bir kategoriye bağlı "
+            + "(bilinen bug SCRUM-258: admin kategori seçmeden ürün ekleyebiliyor)")
     public void categoriesAndRelations() {
-        assertEquals(DBUtils.count("select count(*) from category_entity where active = true"), 6L);
+        assertEquals(DBUtils.count("select count(*) from category_entity where active = true and name in "
+                + "('DONER', 'HAMBURGER', 'PIZZA', 'ICECEKLER', 'TATLILAR', 'SALATALAR')"), 6L);
         assertEquals(DBUtils.count("select count(*) from product p where not exists "
                 + "(select 1 from product_category pc where pc.product_id = p.id)"), 0L, "Kategorisiz ürün olmamalı");
     }

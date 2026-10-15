@@ -11,6 +11,7 @@ import utilities.ApiSpec;
 import utilities.DBUtils;
 import utilities.Driver;
 
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -55,12 +56,19 @@ public class ProductConsistencyE2ETest {
 
     @Test(description = "E2E_02 – Ürün sayısı UI (sayfalama), API (totalElements) ve DB'de aynı")
     public void productCountIsConsistent() {
+        // Sayfa sayısı ürün eklendikçe değişebildiği için "Next" yeni ürün getirmeyene kadar ilerlenir.
         ProductsPage page = new ProductsPage().open();
-        int uiCount = page.productNames().size();
-        page.goToPage("Next");
-        uiCount += page.productNames().size();
-        page.goToPage("Next");
-        uiCount += page.productNames().size();
+        List<String> current = page.productNames();
+        int uiCount = current.size();
+        for (int i = 0; i < 20; i++) {
+            page.goToPage("Next");
+            List<String> next = page.productNames();
+            if (next.isEmpty() || next.equals(current)) {
+                break;
+            }
+            uiCount += next.size();
+            current = next;
+        }
 
         long apiCount = given().spec(ApiSpec.spec()).queryParam("search", "").queryParam("page", 0).queryParam("size", 10)
                 .get("/products/allProduct-client").then().statusCode(200).extract().jsonPath().getLong("totalElements");
