@@ -72,7 +72,7 @@
   {
    "testKey": "SCRUM-50",
    "status": "PASSED",
-   "comment": "+1 (US) seçili ve TR numarası girili iken \"Invalid phone number.\" uyarısı görüntülendi."
+   "comment": "Country Code +1 (US) seçili ve TR numarası girili iken \"Invalid phone number.\" uyarısı görüntülendi."
   },
   {
    "testKey": "SCRUM-51",
@@ -235,27 +235,27 @@
   {
    "testKey": "SCRUM-76",
    "status": "PASSED",
-   "comment": "+90 (TR) ile Phone \"54a1234567\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Country Code +90 (TR), Phone \"54a1234567\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-77",
    "status": "PASSED",
-   "comment": "+90 (TR) ile Phone \"541-123-45!\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Country Code +90 (TR), Phone \"541-123-45!\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-78",
    "status": "PASSED",
-   "comment": "+90 (TR) ile Phone \"54112345 (8 hane)\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Country Code +90 (TR), Phone \"54112345 (8 hane)\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-79",
    "status": "PASSED",
-   "comment": "+90 (TR) ile Phone \"541123456789 (12 hane)\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
+   "comment": "Country Code +90 (TR), Phone \"541123456789 (12 hane)\" → \"Invalid phone number.\" görüntülendi, kayıt yapılmadı."
   },
   {
    "testKey": "SCRUM-80",
    "status": "PASSED",
-   "comment": "+1 (US) seçili, Phone \"5411234567\" (TR numarası) → \"Invalid phone number.\" görüntülendi."
+   "comment": "Country Code +1 (US) seçili, Phone \"5411234567\" (TR numarası) → \"Invalid phone number.\" görüntülendi."
   },
   {
    "testKey": "SCRUM-81",
