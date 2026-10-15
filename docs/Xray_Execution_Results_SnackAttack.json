@@ -1,12 +1,5 @@
 {
  "testExecutionKey": "SCRUM-243",
- "info": {
-  "summary": "Snack Attack Sprint 1 – Manuel Test Execution #1",
-  "description": "US_01 – US_21 manuel koşum (192 test case). Ortam: https://snackattack.deployedprojects.xyz/ (Chrome, Windows 11). Test eden: Yıldıray Kösedağ. 10.10.2026: kullanıcı testleri; 15.10.2026: admin (mehmet@admin.com) testleri ve kalan senaryolar.",
-  "startDate": "2026-10-10T10:00:00+03:00",
-  "finishDate": "2026-10-15T14:00:00+03:00",
-  "testPlanKey": "SCRUM-242"
- },
  "tests": [
   {
    "testKey": "SCRUM-37",
