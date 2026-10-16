@@ -76,6 +76,21 @@ Başarısız testlerin **tamamı** aşağıdaki JIRA bug kayıtlarına karşıl�
 
 Tüm bulgular ve manuel koşum sonuçları için bitirme projesindeki Test Planı ve JIRA `SCRUM` projesine bakınız.
 
+## JIRA / Xray (madde 6-12)
+
+JIRA Software Cloud projesi: **Snack Attack** (proje anahtarı `SCRUM`) – <https://kosedagyildiray5.atlassian.net>
+
+| Ne | Link |
+|---|---|
+| Scrum panosu (Sprint 1) | <https://kosedagyildiray5.atlassian.net/jira/software/projects/SCRUM/boards/1> |
+| Backlog | <https://kosedagyildiray5.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog> |
+| User Story'ler (SCRUM-8 … SCRUM-28) | <https://kosedagyildiray5.atlassian.net/issues/?jql=project%20%3D%20SCRUM%20AND%20key%20%3E%3D%20SCRUM-8%20AND%20key%20%3C%3D%20SCRUM-28%20ORDER%20BY%20key%20ASC> |
+| Bug kayıtları (53 adet) | <https://kosedagyildiray5.atlassian.net/issues/?jql=project%20%3D%20SCRUM%20AND%20issuetype%20%3D%2010012%20ORDER%20BY%20key%20ASC> |
+| Xray Test Plan | <https://kosedagyildiray5.atlassian.net/browse/SCRUM-242> |
+| Xray Test Execution (192 test – 120 PASSED / 72 FAILED) | <https://kosedagyildiray5.atlassian.net/browse/SCRUM-243> |
+
+Xray Test kayıtları: SCRUM-37 … SCRUM-228 (192 test case, adımlarıyla). Bug'lar ilgili story ve test kaydına "Relates" ile bağlıdır.
+
 ## Windows / Türkçe ortam notu
 
 Kullanıcı klasöründe Türkçe karakter (ör. `ç`) varsa Selenium'un HTTP istemcisi `Unable to establish loopback connection` hatası verir.
